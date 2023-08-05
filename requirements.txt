@@ -1,0 +1,5 @@
+newsapi-python
+transformers
+python-docx
+diffusers 
+scipy
