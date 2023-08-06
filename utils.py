@@ -6,9 +6,9 @@ import re
 
 
 def readConfig():
-    config = configparser.ConfigParser()
-    config.read('config.ini')
-    return config
+  config = configparser.ConfigParser()
+  config.read('genai_gazzete/config.ini')
+  return config
 
 def clear_article(text):
   text = re.sub(r'\\r\\n', ' ', text)
