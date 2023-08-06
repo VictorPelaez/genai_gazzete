@@ -19,7 +19,7 @@ def clear_article(text):
 def format_summary(text):
   text = re.sub(r'\s([?.!"](?:\s|$))', r'\1', text) # Remove whitespaces
   text = '. '.join(map(lambda s: s.strip().capitalize(), text.split('.')))
-  return text.lstrip().capitalize()
+  return text
 
 def remove_summaries(df, top=10):
   """
