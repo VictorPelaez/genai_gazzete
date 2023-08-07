@@ -22,6 +22,7 @@ def format_summary(text):
   - Remove whitespaces
   - Replace some text
   - Modify upper-case in some cases
+  
   """
   text = re.sub(r'\s([?.!"](?:\s|$))', r'\1', text) 
   text =  text.replace("ai", "AI")
