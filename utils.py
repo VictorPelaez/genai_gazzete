@@ -17,7 +17,16 @@ def clear_article(text):
   return text.lower()
 
 def format_summary(text):
-  text = re.sub(r'\s([?.!"](?:\s|$))', r'\1', text) # Remove whitespaces
+  """
+  Description: it function gives some text-format
+  - Remove whitespaces
+  - Replace some text
+  - Modify upper-case in some cases
+  """
+  text = re.sub(r'\s([?.!"](?:\s|$))', r'\1', text) 
+  text =  text.replace("ai", "AI")
+  text =  text.replace("llm", "LLM").replace("llms", "LLMs")
+  text =  text.replace("google", "Google").replace("amazon", "Amazon").replace("microsoft", "Microsoft")
   text = '. '.join(map(lambda s: s.strip().capitalize(), text.split('.')))
   return text
 
