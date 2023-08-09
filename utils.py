@@ -3,12 +3,27 @@
 
 import configparser
 import re
+from newsapi import NewsApiClient
 
 
-def readConfig():
+def get_news(fdate, n_articles=20):
+  """
+  Description: get n_articles news from newsapi client
+  -
+  -
+  """
+
   config = configparser.ConfigParser()
   config.read('genai_gazzete/config.ini')
-  return config
+  d_config = dict(config.items('DEFAULT'))
+  newsapi = NewsApiClient(api_key=d_config['api_key'])
+  q_topics = 'generative ai genai llms'
+  articles = newsapi.get_everything(q=q_topics,
+                                    language='en',
+                                    from_param=fdate,
+                                    sort_by='relevancy',
+                                    page_size=n_articles)
+  return articles
 
 def clear_article(text):
   text = re.sub(r'\\r\\n', ' ', text)
